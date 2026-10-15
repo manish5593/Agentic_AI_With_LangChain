@@ -57,7 +57,9 @@ Dict[str, Any], List[str]):
     )
 
     result = agent.invoke({"messages": messages})
-    tools_used = [t.name for t in result.get("messages", []) if isinstance(t, ToolMessage)]
+    # Only count tool calls made in this turn, not those already in the chat history
+    new_messages = result.get("messages", [])[len(messages):]
+    tools_used = [t.name for t in new_messages if isinstance(t, ToolMessage)]
 
     return result, tools_used
 

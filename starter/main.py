@@ -112,8 +112,8 @@ def main():
                 if result.get("intent"):
                     intent = result["intent"]
                     print(f"\nINTENT: {intent['intent_type']}", color='green')
-                if result.get("active_documents"):
-                    print(f"\nSOURCES: {', '.join(result['active_documents'])}", color='blue')
+                if result.get("sources"):
+                    print(f"\nSOURCES: {', '.join(result['sources'])}", color='blue')
                 if result.get("tools_used"):
                     print(f"\nTOOLS USED: {', '.join(result['tools_used'])}", color='magenta')
                 if result.get("summary"):
