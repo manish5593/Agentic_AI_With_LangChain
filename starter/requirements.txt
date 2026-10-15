@@ -1,9 +1,10 @@
 # DocDacity Document Assistant
 
-langchain>=0.2.0
-langgraph>=0.6.7
-langchain-openai>=0.1.0
-langchain-core>=0.2.0
+langchain>=1.4.0
+langgraph>=1.2.0
+langgraph-checkpoint>=4.3.0
+langchain-openai>=1.7.0
+langchain-core>=1.6.0
 pydantic>=2.0.0
 python-dotenv>=1.0.0
 openai>=1.0.0

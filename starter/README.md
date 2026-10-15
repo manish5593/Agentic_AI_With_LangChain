@@ -10,7 +10,7 @@ This document assistant uses a multi-agent architecture with LangGraph to handle
 - **Calculation Agent**: Performs mathematical operations on document data
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.12+
 - OpenAI API key
 
 ### Installation
