@@ -1,0 +1,3051 @@
+{
+  "session_id": "70e8f0b5-48bd-4490-8fad-e8c5900e8ca0",
+  "user_id": "demo_user",
+  "conversation_history": [
+    {
+      "user_input": "What is the termination notice period in the service agreement?",
+      "messages": [
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+        },
+        {
+          "content": "What is the termination notice period in the service agreement?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 838,
+              "total_tokens": 882,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "termination notice period",
+                "search_type": "keyword",
+                "doc_type": "contract",
+                "min_amount": null,
+                "max_amount": null,
+                "comparison": null,
+                "amount": null
+              },
+              "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 838,
+            "output_tokens": 44,
+            "total_tokens": 882,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+          "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 977,
+              "total_tokens": 994,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "CON-001"
+              },
+              "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 977,
+            "output_tokens": 17,
+            "total_tokens": 994,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+          "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        }
+      ],
+      "intent": {
+        "intent_type": "qa",
+        "confidence": 0.95,
+        "reasoning": "The user's input is a direct question about a specific detail within a document, specifically a service agreement. The question does not involve any mathematical operations or require summarization of the document. Therefore, it falls under the 'qa' category, as it seeks factual information from the document."
+      },
+      "next_step": "end",
+      "conversation_summary": "- Asked about the termination notice period in the service agreement, which is 60 days.",
+      "active_documents": [
+        "CON-001"
+      ],
+      "current_response": {
+        "messages": [
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+          },
+          {
+            "content": "What is the termination notice period in the service agreement?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 44,
+                "prompt_tokens": 838,
+                "total_tokens": 882,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "termination notice period",
+                  "search_type": "keyword",
+                  "doc_type": "contract",
+                  "min_amount": null,
+                  "max_amount": null,
+                  "comparison": null,
+                  "amount": null
+                },
+                "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 838,
+              "output_tokens": 44,
+              "total_tokens": 882,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+            "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 977,
+                "total_tokens": 994,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "CON-001"
+                },
+                "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 977,
+              "output_tokens": 17,
+              "total_tokens": 994,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+            "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ],
+        "structured_response": {
+          "question": "What is the termination notice period in the service agreement?",
+          "answer": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+          "sources": [
+            "CON-001"
+          ],
+          "confidence": 0.95,
+          "timestamp": "2023-10-06T12:34:56+00:00"
+        }
+      },
+      "tools_used": [
+        "document_search",
+        "document_reader"
+      ],
+      "session_id": "70e8f0b5-48bd-4490-8fad-e8c5900e8ca0",
+      "user_id": "demo_user",
+      "actions_taken": [
+        "classify_intent",
+        "qa_agent",
+        "update_memory"
+      ]
+    },
+    {
+      "user_input": "Which invoices are over $50,000?",
+      "messages": [
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+        },
+        {
+          "content": "What is the termination notice period in the service agreement?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 838,
+              "total_tokens": 882,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "termination notice period",
+                "search_type": "keyword",
+                "doc_type": "contract",
+                "min_amount": null,
+                "max_amount": null,
+                "comparison": null,
+                "amount": null
+              },
+              "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 838,
+            "output_tokens": 44,
+            "total_tokens": 882,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+          "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 977,
+              "total_tokens": 994,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "CON-001"
+              },
+              "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 977,
+            "output_tokens": 17,
+            "total_tokens": 994,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+          "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        },
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "d827ed2e-4727-4540-8388-7d41958d5178"
+        },
+        {
+          "content": "Which invoices are over $50,000?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "c1a26507-85cc-4d38-948b-ee0b109d97a5"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 50,
+              "prompt_tokens": 1288,
+              "total_tokens": 1338,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZTxWQeopErPlrkjrSYunHMWhWs",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-2689-7772-80e7-995fe0c8f1ca-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "invoices over $50,000",
+                "search_type": "amount",
+                "doc_type": "invoice",
+                "min_amount": 50000,
+                "max_amount": null,
+                "comparison": "over",
+                "amount": 50000
+              },
+              "id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1288,
+            "output_tokens": 50,
+            "total_tokens": 1338,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\nDocument 2 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\nDocument 3 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "9e19bbdf-daa1-43f9-9344-f7088b6c1d8e",
+          "tool_call_id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-2aed-7351-a74d-5fc04c08a16d-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        }
+      ],
+      "intent": {
+        "intent_type": "qa",
+        "confidence": 0.85,
+        "reasoning": "The user is asking a specific question about the content of invoices, which falls under the category of 'qa' as it involves querying document content. Although the question involves a numerical threshold, it does not require performing calculations, just identifying invoices that meet the criteria."
+      },
+      "next_step": "end",
+      "conversation_summary": "- Asked about the termination notice period in the service agreement, which is 60 days.\n- Inquired about invoices over $50,000: Invoice #12347 ($214,500) and Invoice #12346 ($69,300)",
+      "active_documents": [
+        "INV-003",
+        "INV-002"
+      ],
+      "current_response": {
+        "messages": [
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "d827ed2e-4727-4540-8388-7d41958d5178"
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+          },
+          {
+            "content": "What is the termination notice period in the service agreement?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 44,
+                "prompt_tokens": 838,
+                "total_tokens": 882,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "termination notice period",
+                  "search_type": "keyword",
+                  "doc_type": "contract",
+                  "min_amount": null,
+                  "max_amount": null,
+                  "comparison": null,
+                  "amount": null
+                },
+                "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 838,
+              "output_tokens": 44,
+              "total_tokens": 882,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+            "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 977,
+                "total_tokens": 994,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "CON-001"
+                },
+                "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 977,
+              "output_tokens": 17,
+              "total_tokens": 994,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+            "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "Which invoices are over $50,000?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "c1a26507-85cc-4d38-948b-ee0b109d97a5"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1288,
+                "total_tokens": 1338,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZTxWQeopErPlrkjrSYunHMWhWs",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-2689-7772-80e7-995fe0c8f1ca-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "invoices over $50,000",
+                  "search_type": "amount",
+                  "doc_type": "invoice",
+                  "min_amount": 50000,
+                  "max_amount": null,
+                  "comparison": "over",
+                  "amount": 50000
+                },
+                "id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1288,
+              "output_tokens": 50,
+              "total_tokens": 1338,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\nDocument 2 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\nDocument 3 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "9e19bbdf-daa1-43f9-9344-f7088b6c1d8e",
+            "tool_call_id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-2aed-7351-a74d-5fc04c08a16d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ],
+        "structured_response": {
+          "question": "Which invoices are over $50,000?",
+          "answer": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+          "sources": [
+            "INV-003",
+            "INV-002"
+          ],
+          "confidence": 0.95,
+          "timestamp": "2023-10-06T13:12:34+00:00"
+        }
+      },
+      "tools_used": [
+        "document_search"
+      ],
+      "session_id": "70e8f0b5-48bd-4490-8fad-e8c5900e8ca0",
+      "user_id": "demo_user",
+      "actions_taken": [
+        "classify_intent",
+        "qa_agent",
+        "update_memory",
+        "classify_intent",
+        "qa_agent",
+        "update_memory"
+      ]
+    },
+    {
+      "user_input": "What is the monthly fee in the service agreement?",
+      "messages": [
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+        },
+        {
+          "content": "What is the termination notice period in the service agreement?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 838,
+              "total_tokens": 882,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "termination notice period",
+                "search_type": "keyword",
+                "doc_type": "contract",
+                "min_amount": null,
+                "max_amount": null,
+                "comparison": null,
+                "amount": null
+              },
+              "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 838,
+            "output_tokens": 44,
+            "total_tokens": 882,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+          "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 977,
+              "total_tokens": 994,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "CON-001"
+              },
+              "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 977,
+            "output_tokens": 17,
+            "total_tokens": 994,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+          "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        },
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "d827ed2e-4727-4540-8388-7d41958d5178"
+        },
+        {
+          "content": "Which invoices are over $50,000?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "c1a26507-85cc-4d38-948b-ee0b109d97a5"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 50,
+              "prompt_tokens": 1288,
+              "total_tokens": 1338,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZTxWQeopErPlrkjrSYunHMWhWs",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-2689-7772-80e7-995fe0c8f1ca-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "invoices over $50,000",
+                "search_type": "amount",
+                "doc_type": "invoice",
+                "min_amount": 50000,
+                "max_amount": null,
+                "comparison": "over",
+                "amount": 50000
+              },
+              "id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1288,
+            "output_tokens": 50,
+            "total_tokens": 1338,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\nDocument 2 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\nDocument 3 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "9e19bbdf-daa1-43f9-9344-f7088b6c1d8e",
+          "tool_call_id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-2aed-7351-a74d-5fc04c08a16d-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        },
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "80acd28e-ffff-44b9-8918-abdca871fe61"
+        },
+        {
+          "content": "What is the monthly fee in the service agreement?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "f49a3916-cc6e-41d5-bfd6-dbf198c8efab"
+        },
+        {
+          "content": "The monthly fee in the service agreement is $15,000.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-3e9d-7f02-bcb7-7fbecc9565d6-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        }
+      ],
+      "intent": {
+        "intent_type": "qa",
+        "confidence": 0.95,
+        "reasoning": "The user is asking for specific information about the monthly fee mentioned in a service agreement. This is a direct question about document content, which aligns with the 'qa' category. The question does not involve any calculations or require summarization, making 'qa' the most appropriate classification."
+      },
+      "next_step": "end",
+      "conversation_summary": "- Asked about the termination notice period in the service agreement, which is 60 days.\n- Inquired about invoices over $50,000: Invoice #12347 ($214,500) and Invoice #12346 ($69,300)\n- Asked about the monthly fee in the service agreement, which is $15,000.",
+      "active_documents": [],
+      "current_response": {
+        "messages": [
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "80acd28e-ffff-44b9-8918-abdca871fe61"
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+          },
+          {
+            "content": "What is the termination notice period in the service agreement?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 44,
+                "prompt_tokens": 838,
+                "total_tokens": 882,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "termination notice period",
+                  "search_type": "keyword",
+                  "doc_type": "contract",
+                  "min_amount": null,
+                  "max_amount": null,
+                  "comparison": null,
+                  "amount": null
+                },
+                "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 838,
+              "output_tokens": 44,
+              "total_tokens": 882,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+            "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 977,
+                "total_tokens": 994,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "CON-001"
+                },
+                "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 977,
+              "output_tokens": 17,
+              "total_tokens": 994,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+            "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "d827ed2e-4727-4540-8388-7d41958d5178"
+          },
+          {
+            "content": "Which invoices are over $50,000?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "c1a26507-85cc-4d38-948b-ee0b109d97a5"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1288,
+                "total_tokens": 1338,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZTxWQeopErPlrkjrSYunHMWhWs",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-2689-7772-80e7-995fe0c8f1ca-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "invoices over $50,000",
+                  "search_type": "amount",
+                  "doc_type": "invoice",
+                  "min_amount": 50000,
+                  "max_amount": null,
+                  "comparison": "over",
+                  "amount": 50000
+                },
+                "id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1288,
+              "output_tokens": 50,
+              "total_tokens": 1338,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\nDocument 2 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\nDocument 3 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "9e19bbdf-daa1-43f9-9344-f7088b6c1d8e",
+            "tool_call_id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-2aed-7351-a74d-5fc04c08a16d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "What is the monthly fee in the service agreement?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "f49a3916-cc6e-41d5-bfd6-dbf198c8efab"
+          },
+          {
+            "content": "The monthly fee in the service agreement is $15,000.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-3e9d-7f02-bcb7-7fbecc9565d6-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ],
+        "structured_response": {
+          "question": "What is the monthly fee in the service agreement?",
+          "answer": "The monthly fee in the service agreement is $15,000.",
+          "sources": [
+            "CON-001"
+          ],
+          "confidence": 0.95,
+          "timestamp": "2023-10-06T13:18:29+00:00"
+        }
+      },
+      "tools_used": [],
+      "session_id": "70e8f0b5-48bd-4490-8fad-e8c5900e8ca0",
+      "user_id": "demo_user",
+      "actions_taken": [
+        "classify_intent",
+        "qa_agent",
+        "update_memory",
+        "classify_intent",
+        "qa_agent",
+        "update_memory",
+        "classify_intent",
+        "qa_agent",
+        "update_memory"
+      ]
+    },
+    {
+      "user_input": "How much tax was charged across all three invoices?",
+      "messages": [
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+        },
+        {
+          "content": "What is the termination notice period in the service agreement?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 838,
+              "total_tokens": 882,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "termination notice period",
+                "search_type": "keyword",
+                "doc_type": "contract",
+                "min_amount": null,
+                "max_amount": null,
+                "comparison": null,
+                "amount": null
+              },
+              "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 838,
+            "output_tokens": 44,
+            "total_tokens": 882,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+          "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 977,
+              "total_tokens": 994,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "CON-001"
+              },
+              "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 977,
+            "output_tokens": 17,
+            "total_tokens": 994,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+          "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        },
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "d827ed2e-4727-4540-8388-7d41958d5178"
+        },
+        {
+          "content": "Which invoices are over $50,000?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "c1a26507-85cc-4d38-948b-ee0b109d97a5"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 50,
+              "prompt_tokens": 1288,
+              "total_tokens": 1338,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZTxWQeopErPlrkjrSYunHMWhWs",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-2689-7772-80e7-995fe0c8f1ca-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "invoices over $50,000",
+                "search_type": "amount",
+                "doc_type": "invoice",
+                "min_amount": 50000,
+                "max_amount": null,
+                "comparison": "over",
+                "amount": 50000
+              },
+              "id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1288,
+            "output_tokens": 50,
+            "total_tokens": 1338,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\nDocument 2 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\nDocument 3 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "9e19bbdf-daa1-43f9-9344-f7088b6c1d8e",
+          "tool_call_id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-2aed-7351-a74d-5fc04c08a16d-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        },
+        {
+          "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "80acd28e-ffff-44b9-8918-abdca871fe61"
+        },
+        {
+          "content": "What is the monthly fee in the service agreement?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "f49a3916-cc6e-41d5-bfd6-dbf198c8efab"
+        },
+        {
+          "content": "The monthly fee in the service agreement is $15,000.",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-3e9d-7f02-bcb7-7fbecc9565d6-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        },
+        {
+          "content": "You are a precise calculation assistant specializing in financial and healthcare documents.\n\nYour approach:\n- Determine which document contains the numbers needed, search for it, and retrieve it using the document reader tool\n- Identify the exact values in the document and determine the mathematical expression that answers the user's request\n- Use the calculator tool to evaluate the expression\n\nGuidelines:\n1. ALWAYS use the calculator tool for EVERY calculation, no matter how simple. Never do math in your head\n2. Read the source document before calculating, and take numbers directly from it\n3. Show the expression you calculated and explain each step\n4. Include units (such as currency) in your answer when applicable\n5. Cite the document IDs the numbers came from\n6. If the required numbers cannot be found, say so clearly instead of guessing\n7. When a document's total is needed, use the final total INCLUDING tax and discounts. If a document\n   lists a subtotal and tax but no total, add them together with the calculator tool to get its total.\n   Never use a subtotal as a document's total\n8. To find all documents of a kind (e.g., \"all invoices\"), use the document search tool with\n   search_type='type' and doc_type set to 'invoice', 'contract' or 'claim'. If a search returns no\n   results, try a different search before concluding that the documents do not exist\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "system",
+          "name": null,
+          "id": "238e0cae-de1d-45da-809a-a37b249417b8"
+        },
+        {
+          "content": "How much tax was charged across all three invoices?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "de8f73be-409f-4f99-abe7-26695048bead"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 50,
+              "prompt_tokens": 2134,
+              "total_tokens": 2184,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZdzY865TZFcWDbH0QhTUj1ZL5T",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-4d3a-7b61-ba0a-ec0706a3e1c0-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "INV-003"
+              },
+              "id": "call_3MnTkHEFH2B8dOBhpPuShMuQ",
+              "type": "tool_call"
+            },
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "INV-002"
+              },
+              "id": "call_fy5POXjSxQwLRiajcwORnJyS",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 2134,
+            "output_tokens": 50,
+            "total_tokens": 2184,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document INV-003:\nAmount: $214,500.00\n\n\n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premium Support: $30,000\n                - Custom Development: $45,000\n\n                Subtotal: $195,000\n                Tax (10%): $19,500\n                Total Due: $214,500\n\n                Payment Terms: Net 60 days\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "7aecff80-89fb-4ec4-8f18-a4443a4d05e8",
+          "tool_call_id": "call_3MnTkHEFH2B8dOBhpPuShMuQ",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "Document INV-002:\nAmount: $69,300.00\n\n\n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n                - Implementation Services: $15,000\n                - Training Package: $5,000\n\n                Subtotal: $70,000\n                Discount (10%): -$7,000\n                Tax (10%): $6,300\n                Total Due: $69,300\n\n                Payment Terms: Net 45 days\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "8a5c613b-d5fa-4d84-9961-1e32388adf9e",
+          "tool_call_id": "call_fy5POXjSxQwLRiajcwORnJyS",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 45,
+              "prompt_tokens": 2446,
+              "total_tokens": 2491,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 2048,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZeyzdfYKprFTmCM9bropKb6X2X",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-51b3-7a22-8bbb-af39c35ba8c9-0",
+          "tool_calls": [
+            {
+              "name": "document_search",
+              "args": {
+                "query": "Invoice #12345",
+                "search_type": "type",
+                "doc_type": "invoice",
+                "min_amount": null,
+                "max_amount": null,
+                "comparison": null,
+                "amount": null
+              },
+              "id": "call_uc19310H1VJkwsMyd3WTwlCh",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 2446,
+            "output_tokens": 45,
+            "total_tokens": 2491,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 2048
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-001):\nTitle: Invoice #12345\nType: invoice\nRelevance Score: 1.00\nPreview: \n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n            ...\n--------------------------------------------------\nDocument 2 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\nDocument 3 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\n",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_search",
+          "id": "4e129639-f563-4733-aa2a-fe640b5f50c5",
+          "tool_call_id": "call_uc19310H1VJkwsMyd3WTwlCh",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 17,
+              "prompt_tokens": 2751,
+              "total_tokens": 2768,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 2432,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZfRA192lUqFnGGXyehhGp6sr03",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-5651-7363-b792-753aad16c142-0",
+          "tool_calls": [
+            {
+              "name": "document_reader",
+              "args": {
+                "doc_id": "INV-001"
+              },
+              "id": "call_loQDrE0ZXLM1kuEMc5SIDoi6",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 2751,
+            "output_tokens": 17,
+            "total_tokens": 2768,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 2432
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Document INV-001:\n\n\n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n                - Software Development: $12,500\n                - Support & Maintenance: $2,500\n\n                Subtotal: $20,000\n                Tax (10%): $2,000\n\n                Payment Terms: Net 30 days\n                ",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "document_reader",
+          "id": "b5e85e33-ebc4-4fd8-bcbd-40c0559f83e7",
+          "tool_call_id": "call_loQDrE0ZXLM1kuEMc5SIDoi6",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "",
+          "additional_kwargs": {
+            "parsed": null,
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 23,
+              "prompt_tokens": 2871,
+              "total_tokens": 2894,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 2688,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "gpt-4o-2024-08-06",
+            "system_fingerprint": "fp_f0408a18fe",
+            "id": "chatcmpl-EZBZgptOWQOPTjffUdjbvFxX6SNDc",
+            "service_tier": "default",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-5a46-7fa3-92ea-3241f140148d-0",
+          "tool_calls": [
+            {
+              "name": "calculator",
+              "args": {
+                "expression": "19500 + 6300 + 2000"
+              },
+              "id": "call_5L7ijgfi4tofNXiHWg9l0OlN",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 2871,
+            "output_tokens": 23,
+            "total_tokens": 2894,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 2688
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "19500 + 6300 + 2000 = 27800",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "calculator",
+          "id": "f3719033-c2a2-4e1d-9e79-b2717653ecb4",
+          "tool_call_id": "call_5L7ijgfi4tofNXiHWg9l0OlN",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "The tax charged across all three invoices is calculated by adding the tax amounts from each invoice:\n\n- Invoice #12347: Tax = $19,500\n- Invoice #12346: Tax = $6,300\n- Invoice #12345: Tax = $2,000\n\nTotal tax = $19,500 + $6,300 + $2,000 = $27,800\n\nResult: 19500 + 6300 + 2000 = 27,800 USD",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a13ec8-5ef4-7ff3-8f44-3f7fbf57f4b8-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        }
+      ],
+      "intent": {
+        "intent_type": "calculation",
+        "confidence": 0.95,
+        "reasoning": "The user's request involves determining the total tax charged across multiple invoices, which implies a need for numerical computation or aggregation of tax amounts from the invoices. This aligns with the 'calculation' intent category, as it requires processing numerical data to provide an answer."
+      },
+      "next_step": "end",
+      "conversation_summary": "- Asked about the termination notice period in the service agreement, which is 60 days.\n- Inquired about invoices over $50,000: Invoice #12347 ($214,500) and Invoice #12346 ($69,300)\n- Asked about the monthly fee in the service agreement, which is $15,000.\n- Asked about the total tax charged across all three invoices, which is $27,800.",
+      "active_documents": [
+        "INV-003",
+        "INV-002",
+        "INV-001"
+      ],
+      "current_response": {
+        "messages": [
+          {
+            "content": "You are a precise calculation assistant specializing in financial and healthcare documents.\n\nYour approach:\n- Determine which document contains the numbers needed, search for it, and retrieve it using the document reader tool\n- Identify the exact values in the document and determine the mathematical expression that answers the user's request\n- Use the calculator tool to evaluate the expression\n\nGuidelines:\n1. ALWAYS use the calculator tool for EVERY calculation, no matter how simple. Never do math in your head\n2. Read the source document before calculating, and take numbers directly from it\n3. Show the expression you calculated and explain each step\n4. Include units (such as currency) in your answer when applicable\n5. Cite the document IDs the numbers came from\n6. If the required numbers cannot be found, say so clearly instead of guessing\n7. When a document's total is needed, use the final total INCLUDING tax and discounts. If a document\n   lists a subtotal and tax but no total, add them together with the calculator tool to get its total.\n   Never use a subtotal as a document's total\n8. To find all documents of a kind (e.g., \"all invoices\"), use the document search tool with\n   search_type='type' and doc_type set to 'invoice', 'contract' or 'claim'. If a search returns no\n   results, try a different search before concluding that the documents do not exist\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "238e0cae-de1d-45da-809a-a37b249417b8"
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "ee2de2ec-0582-428b-af25-b61dcbfbb66f"
+          },
+          {
+            "content": "What is the termination notice period in the service agreement?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "e8c33448-eec5-490c-914a-abfc732ee9af"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 44,
+                "prompt_tokens": 838,
+                "total_tokens": 882,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZNbNkhcustlSXV6JiQTiqsu0V8",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-10a6-7ee0-8e1a-d294264f6f8c-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "termination notice period",
+                  "search_type": "keyword",
+                  "doc_type": "contract",
+                  "min_amount": null,
+                  "max_amount": null,
+                  "comparison": null,
+                  "amount": null
+                },
+                "id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 838,
+              "output_tokens": 44,
+              "total_tokens": 882,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 1 document(s):\n\nDocument 1 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "f7e38116-950a-4e5a-9cbc-be2fc2254b62",
+            "tool_call_id": "call_q5zO8U1jTjh67SKfVc7xPP3K",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 977,
+                "total_tokens": 994,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZO7vPmy2TvlUEh5ufdNEGzCE4y",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-1501-77a1-ba2a-67512abfbb2b-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "CON-001"
+                },
+                "id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 977,
+              "output_tokens": 17,
+              "total_tokens": 994,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document CON-001:\nAmount: $180,000.00\n\n\n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: Healthcare Partners LLC\n\n                Services:\n                1. Document Processing Platform Access\n                2. 24/7 Technical Support\n                3. Monthly Data Analytics Reports\n                4. Compliance Monitoring\n\n                Duration: 12 months\n                Monthly Fee: $15,000\n                Total Contract Value: $180,000\n\n                Termination: Either party may terminate with 60 days written notice.\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "ba20bb2e-9ae3-4d19-afdb-300f84f29506",
+            "tool_call_id": "call_YGsVicCMgGTUkDzOTTtKEe8u",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The termination notice period in the service agreement is 60 days. Either party may terminate the agreement with 60 days written notice.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-18d0-7ac2-b746-ebd013253225-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "d827ed2e-4727-4540-8388-7d41958d5178"
+          },
+          {
+            "content": "Which invoices are over $50,000?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "c1a26507-85cc-4d38-948b-ee0b109d97a5"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1288,
+                "total_tokens": 1338,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZTxWQeopErPlrkjrSYunHMWhWs",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-2689-7772-80e7-995fe0c8f1ca-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "invoices over $50,000",
+                  "search_type": "amount",
+                  "doc_type": "invoice",
+                  "min_amount": 50000,
+                  "max_amount": null,
+                  "comparison": "over",
+                  "amount": 50000
+                },
+                "id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1288,
+              "output_tokens": 50,
+              "total_tokens": 1338,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\nDocument 2 (ID: CON-001):\nTitle: Service Agreement\nType: contract\nAmount: $180,000.00\nRelevance Score: 1.00\nPreview: \n                SERVICE AGREEMENT\n\n                This Service Agreement is entered into on January 1, 2024, between:\n                - Provider: DocDacity Solutions Inc.\n                - Client: H...\n--------------------------------------------------\nDocument 3 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "9e19bbdf-daa1-43f9-9344-f7088b6c1d8e",
+            "tool_call_id": "call_uCqXPCbIbS87Rlsk8dwM9Ay5",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The invoices over $50,000 are:\n\n1. **Invoice #12347**\n   - Amount: $214,500.00\n   - Date: 2024-03-01\n   - Client: Global Corp\n\n2. **Invoice #12346**\n   - Amount: $69,300.00\n   - Date: 2024-02-20\n   - Client: TechStart Inc.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-2aed-7351-a74d-5fc04c08a16d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "You are a helpful document assistant specializing in answering questions about financial and healthcare documents.\n\nYour capabilities:\n- Answer specific questions about document content\n- Cite sources accurately\n- Provide clear, concise answers\n- Use available tools to search and read documents\n\nGuidelines:\n1. Always search for relevant documents before answering\n2. Cite specific document IDs when referencing information\n3. If information is not found, say so clearly\n4. Be precise with numbers and dates\n5. Maintain professional tone\n\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": "80acd28e-ffff-44b9-8918-abdca871fe61"
+          },
+          {
+            "content": "What is the monthly fee in the service agreement?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "f49a3916-cc6e-41d5-bfd6-dbf198c8efab"
+          },
+          {
+            "content": "The monthly fee in the service agreement is $15,000.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-3e9d-7f02-bcb7-7fbecc9565d6-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          },
+          {
+            "content": "How much tax was charged across all three invoices?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "de8f73be-409f-4f99-abe7-26695048bead"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 2134,
+                "total_tokens": 2184,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZdzY865TZFcWDbH0QhTUj1ZL5T",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-4d3a-7b61-ba0a-ec0706a3e1c0-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "INV-003"
+                },
+                "id": "call_3MnTkHEFH2B8dOBhpPuShMuQ",
+                "type": "tool_call"
+              },
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "INV-002"
+                },
+                "id": "call_fy5POXjSxQwLRiajcwORnJyS",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 2134,
+              "output_tokens": 50,
+              "total_tokens": 2184,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document INV-003:\nAmount: $214,500.00\n\n\n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premium Support: $30,000\n                - Custom Development: $45,000\n\n                Subtotal: $195,000\n                Tax (10%): $19,500\n                Total Due: $214,500\n\n                Payment Terms: Net 60 days\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "7aecff80-89fb-4ec4-8f18-a4443a4d05e8",
+            "tool_call_id": "call_3MnTkHEFH2B8dOBhpPuShMuQ",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Document INV-002:\nAmount: $69,300.00\n\n\n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n                - Implementation Services: $15,000\n                - Training Package: $5,000\n\n                Subtotal: $70,000\n                Discount (10%): -$7,000\n                Tax (10%): $6,300\n                Total Due: $69,300\n\n                Payment Terms: Net 45 days\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "8a5c613b-d5fa-4d84-9961-1e32388adf9e",
+            "tool_call_id": "call_fy5POXjSxQwLRiajcwORnJyS",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 45,
+                "prompt_tokens": 2446,
+                "total_tokens": 2491,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 2048,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZeyzdfYKprFTmCM9bropKb6X2X",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-51b3-7a22-8bbb-af39c35ba8c9-0",
+            "tool_calls": [
+              {
+                "name": "document_search",
+                "args": {
+                  "query": "Invoice #12345",
+                  "search_type": "type",
+                  "doc_type": "invoice",
+                  "min_amount": null,
+                  "max_amount": null,
+                  "comparison": null,
+                  "amount": null
+                },
+                "id": "call_uc19310H1VJkwsMyd3WTwlCh",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 2446,
+              "output_tokens": 45,
+              "total_tokens": 2491,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 2048
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Found 3 document(s):\n\nDocument 1 (ID: INV-001):\nTitle: Invoice #12345\nType: invoice\nRelevance Score: 1.00\nPreview: \n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n            ...\n--------------------------------------------------\nDocument 2 (ID: INV-002):\nTitle: Invoice #12346\nType: invoice\nAmount: $69,300.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12346\n                Date: 2024-02-20\n                Client: TechStart Inc.\n\n                Products:\n                - Enterprise License (Annual): $50,000\n              ...\n--------------------------------------------------\nDocument 3 (ID: INV-003):\nTitle: Invoice #12347\nType: invoice\nAmount: $214,500.00\nRelevance Score: 1.00\nPreview: \n                Invoice #12347\n                Date: 2024-03-01\n                Client: Global Corp\n\n                Services:\n                - Annual Subscription: $120,000\n                - Premiu...\n--------------------------------------------------\n",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_search",
+            "id": "4e129639-f563-4733-aa2a-fe640b5f50c5",
+            "tool_call_id": "call_uc19310H1VJkwsMyd3WTwlCh",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 17,
+                "prompt_tokens": 2751,
+                "total_tokens": 2768,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 2432,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZfRA192lUqFnGGXyehhGp6sr03",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-5651-7363-b792-753aad16c142-0",
+            "tool_calls": [
+              {
+                "name": "document_reader",
+                "args": {
+                  "doc_id": "INV-001"
+                },
+                "id": "call_loQDrE0ZXLM1kuEMc5SIDoi6",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 2751,
+              "output_tokens": 17,
+              "total_tokens": 2768,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 2432
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Document INV-001:\n\n\n                Invoice #12345\n                Date: 2024-01-15\n                Client: Acme Corporation\n\n                Services Rendered:\n                - Consulting Services: $5,000\n                - Software Development: $12,500\n                - Support & Maintenance: $2,500\n\n                Subtotal: $20,000\n                Tax (10%): $2,000\n\n                Payment Terms: Net 30 days\n                ",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "document_reader",
+            "id": "b5e85e33-ebc4-4fd8-bcbd-40c0559f83e7",
+            "tool_call_id": "call_loQDrE0ZXLM1kuEMc5SIDoi6",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "",
+            "additional_kwargs": {
+              "parsed": null,
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 23,
+                "prompt_tokens": 2871,
+                "total_tokens": 2894,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 2688,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "gpt-4o-2024-08-06",
+              "system_fingerprint": "fp_f0408a18fe",
+              "id": "chatcmpl-EZBZgptOWQOPTjffUdjbvFxX6SNDc",
+              "service_tier": "default",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-5a46-7fa3-92ea-3241f140148d-0",
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "19500 + 6300 + 2000"
+                },
+                "id": "call_5L7ijgfi4tofNXiHWg9l0OlN",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 2871,
+              "output_tokens": 23,
+              "total_tokens": 2894,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 2688
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "19500 + 6300 + 2000 = 27800",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "calculator",
+            "id": "f3719033-c2a2-4e1d-9e79-b2717653ecb4",
+            "tool_call_id": "call_5L7ijgfi4tofNXiHWg9l0OlN",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "The tax charged across all three invoices is calculated by adding the tax amounts from each invoice:\n\n- Invoice #12347: Tax = $19,500\n- Invoice #12346: Tax = $6,300\n- Invoice #12345: Tax = $2,000\n\nTotal tax = $19,500 + $6,300 + $2,000 = $27,800\n\nResult: 19500 + 6300 + 2000 = 27,800 USD",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a13ec8-5ef4-7ff3-8f44-3f7fbf57f4b8-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+          }
+        ],
+        "structured_response": {
+          "expression": "19500 + 6300 + 2000",
+          "result": 27800.0,
+          "explanation": "The tax charged across all three invoices is calculated by adding the tax amounts from each invoice:\n\n- Invoice #12347: Tax = $19,500\n- Invoice #12346: Tax = $6,300\n- Invoice #12345: Tax = $2,000\n\nTotal tax = $19,500 + $6,300 + $2,000 = $27,800",
+          "units": "USD",
+          "timestamp": "2023-10-06T14:30:00+00:00"
+        }
+      },
+      "tools_used": [
+        "document_reader",
+        "document_reader",
+        "document_search",
+        "document_reader",
+        "calculator"
+      ],
+      "session_id": "70e8f0b5-48bd-4490-8fad-e8c5900e8ca0",
+      "user_id": "demo_user",
+      "actions_taken": [
+        "classify_intent",
+        "qa_agent",
+        "update_memory",
+        "classify_intent",
+        "qa_agent",
+        "update_memory",
+        "classify_intent",
+        "qa_agent",
+        "update_memory",
+        "classify_intent",
+        "calculation_agent",
+        "update_memory"
+      ]
+    }
+  ],
+  "document_context": [
+    "CON-001",
+    "INV-003",
+    "INV-001",
+    "INV-002"
+  ],
+  "created_at": "2026-10-15T04:57:39.746585",
+  "last_updated": "2026-10-15T04:58:04.825129"
+}

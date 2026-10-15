@@ -1,0 +1,52 @@
+[
+  {
+    "timestamp": "2026-10-15T04:49:41.741970",
+    "tool_name": "document_statistics",
+    "input": {},
+    "output": "{'stats': {'total_documents': 5, 'documents_with_amounts': 4, 'total_amount': 466250.0, 'average_amount': 116562.5, 'document_types': {'invoice': 3, 'contract': 1, 'claim': 1}, 'min_amount': 2450.0, 'max_amount': 214500.0}}"
+  },
+  {
+    "timestamp": "2026-10-15T04:49:47.070695",
+    "tool_name": "document_search",
+    "input": {
+      "query": "service agreement",
+      "search_type": "keyword",
+      "doc_type": "contract",
+      "min_amount": null,
+      "max_amount": null,
+      "comparison": null,
+      "amount": null
+    },
+    "output": "{'results_count': 3}"
+  },
+  {
+    "timestamp": "2026-10-15T04:49:47.909754",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "CON-001"
+    },
+    "output": "{'found': True, 'doc_type': 'contract'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:49:52.707181",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "15000 * 18"
+    },
+    "output": "{'result': 270000}"
+  },
+  {
+    "timestamp": "2026-10-15T04:49:58.082678",
+    "tool_name": "document_search",
+    "input": {
+      "query": "all invoices",
+      "search_type": "type",
+      "doc_type": "invoice",
+      "min_amount": null,
+      "max_amount": null,
+      "comparison": null,
+      "amount": null
+    },
+    "output": "{'results_count': 3}"
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "timestamp": "2026-10-15T04:43:53.495450",
+    "tool_name": "document_search",
+    "input": {
+      "query": "invoices over $50,000",
+      "search_type": "amount",
+      "doc_type": "invoice",
+      "min_amount": 50000.0,
+      "max_amount": null,
+      "comparison": "over",
+      "amount": 50000.0
+    },
+    "output": "{'results_count': 3}"
+  },
+  {
+    "timestamp": "2026-10-15T04:43:58.793006",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "(214500 + 69300) / 2"
+    },
+    "output": "{'result': 141900}"
+  },
+  {
+    "timestamp": "2026-10-15T04:44:05.613624",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "CON-001"
+    },
+    "output": "{'found': True, 'doc_type': 'contract'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:44:12.959152",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-999"
+    },
+    "output": "{'found': False}"
+  }
+]

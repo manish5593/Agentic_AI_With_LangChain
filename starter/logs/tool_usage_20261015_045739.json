@@ -1,0 +1,92 @@
+[
+  {
+    "timestamp": "2026-10-15T04:57:42.399602",
+    "tool_name": "document_search",
+    "input": {
+      "query": "termination notice period",
+      "search_type": "keyword",
+      "doc_type": "contract",
+      "min_amount": null,
+      "max_amount": null,
+      "comparison": null,
+      "amount": null
+    },
+    "output": "{'results_count': 1}"
+  },
+  {
+    "timestamp": "2026-10-15T04:57:43.374098",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "CON-001"
+    },
+    "output": "{'found': True, 'doc_type': 'contract'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:57:48.009759",
+    "tool_name": "document_search",
+    "input": {
+      "query": "invoices over $50,000",
+      "search_type": "amount",
+      "doc_type": "invoice",
+      "min_amount": 50000.0,
+      "max_amount": null,
+      "comparison": "over",
+      "amount": 50000.0
+    },
+    "output": "{'results_count': 3}"
+  },
+  {
+    "timestamp": "2026-10-15T04:57:57.937535",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-003"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:57:57.937822",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-002"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:57:59.118878",
+    "tool_name": "document_search",
+    "input": {
+      "query": "Invoice #12345",
+      "search_type": "type",
+      "doc_type": "invoice",
+      "min_amount": null,
+      "max_amount": null,
+      "comparison": null,
+      "amount": null
+    },
+    "output": "{'results_count': 3}"
+  },
+  {
+    "timestamp": "2026-10-15T04:58:00.130421",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-001"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:58:01.328914",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "19500 + 6300 + 2000"
+    },
+    "output": "{'result': 27800}"
+  },
+  {
+    "timestamp": "2026-10-15T04:58:03.108438",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "19500 + 6300 + 2000"
+    },
+    "output": "{'result': 27800}"
+  }
+]

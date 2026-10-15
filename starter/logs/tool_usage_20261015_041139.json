@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2026-10-15T04:11:42.377573",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-002"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:11:50.170746",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "CON-001"
+    },
+    "output": "{'found': True, 'doc_type': 'contract'}"
+  }
+]

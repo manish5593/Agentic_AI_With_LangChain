@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2026-10-15T04:14:30.162802",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "CLM-001"
+    },
+    "output": "{'found': True, 'doc_type': 'claim'}"
+  },
+  {
+    "timestamp": "2026-10-15T04:14:36.836687",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "2450 * 0.15"
+    },
+    "output": "{'result': 367.5}"
+  }
+]

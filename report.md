@@ -131,6 +131,23 @@ are repeatable, and are skipped when no API key is set.
 | Summarize the service agreement | summarization | Parties, services, $15,000/month, $180,000 total, 12 months | Yes |
 | What is the total of invoice INV-999? | calculation | Reports that the document could not be found | Yes |
 
+### Runtime evidence
+
+The assistant writes two kinds of files while it runs, and both are included in the repository:
+
+- **`starter/sessions/`** holds 14 session files, one per run of `python main.py`. Each file
+  stores the session ID, user ID, creation time and every turn of the conversation: the user's
+  message, the messages exchanged with the model, the detected intent, the steps taken, the
+  sources and the conversation summary.
+- **`starter/logs/`** holds 14 tool logs (`tool_usage_<date>_<time>.json`), one per run. Each
+  entry records the time, the tool called, its input and a short form of its output. For
+  example, `tool_usage_20261015_045739.json` shows `document_search` and `document_reader` being
+  used to find the invoices, then `calculator` evaluating `19500 + 6300 + 2000` = 27800.
+
+All of them were produced by real conversations with GPT-4o on 15 October 2026. They cover every
+request in the table above, including follow-ups such as "What is 15 percent of that claim
+amount?" and the missing document INV-999.
+
 ## 5. Problems Found and Fixed
 
 Each problem below was found by running the assistant or the tests, then fixed and covered by a
@@ -169,6 +186,9 @@ test.
   the default rather than an empty list. The source-selection code guards against this.
 - **Session files grow quickly.** Each turn stores the full state, so a three-turn session is
   about 70 KB.
+- **Early runs used earlier code.** The sessions and logs come from runs made while the fixes in
+  section 5 were being applied, so the earliest ones show problems that were fixed later, such as
+  the $303,800 total.
 
 ## 7. How to Run
 
