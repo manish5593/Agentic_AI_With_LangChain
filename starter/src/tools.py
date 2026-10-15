@@ -6,9 +6,13 @@ Think of these as the agent's Swiss Army knife 🔧 - each tool has a specific p
 from typing import Dict, Any, List, Optional, Literal
 from langchain.tools import tool
 from pydantic import BaseModel, Field
+import ast
 import re
 import json
 from datetime import datetime
+
+# Largest exponent the calculator accepts; bigger powers could take forever to compute
+MAX_EXPONENT = 100
 
 
 class ToolLogger:
@@ -59,6 +63,26 @@ class ToolLogger:
             json.dump(self.logs, f, indent=2)
 
 
+def _check_exponents(expression: str):
+    """
+    Reject powers that would hang the calculator, such as 9**9**9.
+    Every exponent must be a plain number no larger than MAX_EXPONENT,
+    and powers cannot be nested inside other powers.
+    """
+    for node in ast.walk(ast.parse(expression, mode="eval")):
+        if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Pow):
+            exponent = node.right
+            if isinstance(exponent, ast.UnaryOp) and isinstance(exponent.op, (ast.UAdd, ast.USub)):
+                exponent = exponent.operand
+
+            if not isinstance(exponent, ast.Constant):
+                raise ValueError("Exponents must be plain numbers, e.g. 2 ** 10.")
+            if abs(exponent.value) > MAX_EXPONENT:
+                raise ValueError(f"Exponent too large. The maximum allowed exponent is {MAX_EXPONENT}.")
+            if any(isinstance(child, ast.Pow) for child in ast.walk(node.left)):
+                raise ValueError("Nested powers are not allowed.")
+
+
 def create_calculator_tool(logger: ToolLogger):
     """
     Creates a calculator tool that safely evaluates math expressions.
@@ -87,6 +111,8 @@ def create_calculator_tool(logger: ToolLogger):
                 raise ValueError(
                     "Invalid characters in expression. Only numbers and + - * / % ** ( ) are allowed."
                 )
+
+            _check_exponents(cleaned)
 
             result = eval(cleaned, {"__builtins__": {}}, {})
 

@@ -52,6 +52,32 @@ def test_calculator_rejects_malformed_expressions(calculator, expression):
     assert "is not a valid math expression" in calculator.invoke({"expression": expression})
 
 
+@pytest.mark.parametrize("expression, expected", [
+    ("2 ** 100", "2 ** 100 = 1267650600228229401496703205376"),
+    ("2 ** -2", "2 ** -2 = 0.25"),
+    ("1.05 ** 12", "1.05 ** 12 = 1.795856326"),
+    ("(2 ** 3) * (3 ** 2)", "(2 ** 3) * (3 ** 2) = 72"),
+])
+def test_calculator_allows_reasonable_powers(calculator, expression, expected):
+    assert calculator.invoke({"expression": expression}) == expected
+
+
+@pytest.mark.parametrize("expression, message", [
+    ("9 ** 9 ** 9", "Exponents must be plain numbers"),
+    ("(10 ** 10) ** (10 ** 10)", "Exponents must be plain numbers"),
+    ("2 ** (50 + 60)", "Exponents must be plain numbers"),
+    ("2 ** 101", "Exponent too large"),
+    ("10 ** 1000000", "Exponent too large"),
+    ("2 ** -101", "Exponent too large"),
+    ("(2 ** 50) ** 2", "Nested powers are not allowed"),
+])
+def test_calculator_rejects_dangerous_powers(calculator, expression, message):
+    result = calculator.invoke({"expression": expression})
+
+    assert result.startswith("Error calculating expression")
+    assert message in result
+
+
 def test_calculator_rejects_non_numeric_result(calculator):
     assert "did not evaluate to a number" in calculator.invoke({"expression": "()"})
 
