@@ -1,5 +1,5 @@
-from langchain.prompts import PromptTemplate, ChatPromptTemplate, MessagesPlaceholder
-from langchain.prompts.chat import SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from langchain_core.prompts import PromptTemplate, ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.prompts.chat import SystemMessagePromptTemplate, HumanMessagePromptTemplate
 
 
 def get_intent_classification_prompt() -> PromptTemplate:
@@ -61,22 +61,33 @@ Guidelines:
 """
 
 # Calculation System Prompt
-# TODO: Implement the CALCULATION_SYSTEM_PROMPT. Refer to README.md Task 3.2 for details
-CALCULATION_SYSTEM_PROMPT = """"""
+CALCULATION_SYSTEM_PROMPT = """You are a precise calculation assistant specializing in financial and healthcare documents.
+
+Your approach:
+- Determine which document contains the numbers needed, search for it, and retrieve it using the document reader tool
+- Identify the exact values in the document and determine the mathematical expression that answers the user's request
+- Use the calculator tool to evaluate the expression
+
+Guidelines:
+1. ALWAYS use the calculator tool for EVERY calculation, no matter how simple. Never do math in your head
+2. Read the source document before calculating, and take numbers directly from it
+3. Show the expression you calculated and explain each step
+4. Include units (such as currency) in your answer when applicable
+5. Cite the document IDs the numbers came from
+6. If the required numbers cannot be found, say so clearly instead of guessing
+"""
 
 
-# TODO: Finish the function to return the correct prompt based on intent type
-# Refer to README.md Task 3.1 for details
 def get_chat_prompt_template(intent_type: str) -> ChatPromptTemplate:
     """
     Get the appropriate chat prompt template based on intent.
     """
     if intent_type == "qa":
         system_prompt = QA_SYSTEM_PROMPT
-    elif intent_type ==  # TODO:  Check the intent type value
-        system_prompt =  # TODO: Set system prompt to the correct value based on intent type
-    elif intent_type ==  # TODO: Check the intent type value
-    # TODO: Set system prompt to the correct value based on intent type
+    elif intent_type == "summarization":
+        system_prompt = SUMMARIZATION_SYSTEM_PROMPT
+    elif intent_type == "calculation":
+        system_prompt = CALCULATION_SYSTEM_PROMPT
     else:
         system_prompt = QA_SYSTEM_PROMPT  # Default fallback
 

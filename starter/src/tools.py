@@ -59,15 +59,67 @@ class ToolLogger:
             json.dump(self.logs, f, indent=2)
 
 
-# TODO: Implement the calculator tool using the @tool decorator.
-# This tool should safely evaluate mathematical expressions and log its usage.
-# Refer to README.md Task 4.1 for detailed implementation requirements.
 def create_calculator_tool(logger: ToolLogger):
     """
-    Creates a calculator tool - TO BE IMPLEMENTED
+    Creates a calculator tool that safely evaluates math expressions.
     """
-    # Your implementation here
-    pass
+
+    @tool
+    def calculator(expression: str) -> str:
+        """
+        Evaluate a mathematical expression and return the result.
+        Use this tool for ALL calculations, no matter how simple.
+
+        Args:
+            expression: A math expression using numbers, +, -, *, /, %, ** and
+                parentheses (e.g., '(1500 + 2750.50) * 0.08')
+
+        Returns:
+            The calculated result or an error message if the expression is invalid
+        """
+        try:
+            # Strip currency symbols and thousands separators (e.g., '$1,500.00' -> '1500.00')
+            cleaned = expression.replace("$", "")
+            cleaned = re.sub(r"(?<=\d),(?=\d{3})", "", cleaned).strip()
+
+            # Only allow numbers, whitespace, decimal points, parentheses and basic operators
+            if not cleaned or not re.fullmatch(r"[\d\s.+\-*/%()]+", cleaned):
+                raise ValueError(
+                    "Invalid characters in expression. Only numbers and + - * / % ** ( ) are allowed."
+                )
+
+            result = eval(cleaned, {"__builtins__": {}}, {})
+
+            if not isinstance(result, (int, float)):
+                raise ValueError("Expression did not evaluate to a number.")
+
+            if isinstance(result, float):
+                result = round(result, 10)
+                if result.is_integer():
+                    result = int(result)
+
+            logger.log_tool_use(
+                "calculator",
+                {"expression": expression},
+                {"result": result}
+            )
+            return f"{expression} = {result}"
+
+        except ZeroDivisionError:
+            error_msg = "Error calculating expression: division by zero"
+        except SyntaxError:
+            error_msg = f"Error calculating expression: '{expression}' is not a valid math expression"
+        except Exception as e:
+            error_msg = f"Error calculating expression: {str(e)}"
+
+        logger.log_tool_use(
+            "calculator",
+            {"expression": expression},
+            {"error": error_msg}
+        )
+        return error_msg
+
+    return calculator
 
 
 def create_document_search_tool(retriever, logger: ToolLogger):
