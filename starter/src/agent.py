@@ -102,17 +102,44 @@ def format_structured_response(response: BaseModel, calculator_verified: bool = 
     return str(response)
 
 
-def document_ids_from_tools(messages: List[BaseMessage]) -> List[str]:
-    """IDs of the documents that document_reader read or document_search returned, in order."""
+def document_ids_from_tools(messages: List[BaseMessage], search_results: bool = True) -> List[str]:
+    """
+    IDs of the documents that document_reader read or, unless search_results is False,
+    that document_search returned, in order.
+    """
     doc_ids = []
     for message in messages:
         if not isinstance(message, ToolMessage):
             continue
         if message.name == "document_reader":
             doc_ids += re.findall(r"^Document ([\w-]+):", message.content)
-        elif message.name == "document_search":
+        elif message.name == "document_search" and search_results:
             doc_ids += re.findall(r"\(ID: ([\w-]+)\)", message.content)
     return list(dict.fromkeys(doc_ids))
+
+
+def cited_document_ids(structured_response) -> List[str]:
+    """Document IDs an agent's structured response says it used, if its schema has them."""
+    if isinstance(structured_response, AnswerResponse):
+        doc_ids = structured_response.sources
+    elif isinstance(structured_response, SummarizationResponse):
+        doc_ids = structured_response.document_ids
+    else:
+        return []
+    # Guard against non-list defaults, e.g. SummarizationResponse's `lambda: list` default
+    return [doc_id for doc_id in doc_ids if isinstance(doc_id, str)] if isinstance(doc_ids, list) else []
+
+
+def select_sources(turn_messages: List[BaseMessage], structured_response) -> List[str]:
+    """
+    The documents an answer actually used, preferring in order: the documents the answer
+    cites (if the tools found them), the documents read in full, then all search results.
+    """
+    found = document_ids_from_tools(turn_messages)
+    cited = [doc_id for doc_id in cited_document_ids(structured_response) if doc_id in found]
+    if cited:
+        return list(dict.fromkeys(cited))
+    return document_ids_from_tools(turn_messages, search_results=False) or found
 
 
 def invoke_react_agent(response_schema: type[BaseModel], messages: List[BaseMessage], llm, tools) -> (
@@ -286,13 +313,14 @@ def update_memory(state: AgentState, config: RunnableConfig) -> AgentState:
     response = structured_llm.invoke(prompt_with_history)
 
     # Take the sources from the tools rather than trusting the LLM's guess: the documents
-    # the tools found this turn, or for a follow-up that used no document tools, the
+    # this turn's answer used, or for a follow-up that used no document tools, the
     # LLM's IDs limited to documents the tools have found earlier in the conversation
     messages = state.get("messages", [])
     last_user_message = max(
         (i for i, message in enumerate(messages) if isinstance(message, HumanMessage)), default=-1
     )
-    active_documents = document_ids_from_tools(messages[last_user_message + 1:])
+    structured_response = (state.get("current_response") or {}).get("structured_response")
+    active_documents = select_sources(messages[last_user_message + 1:], structured_response)
     if not active_documents:
         known_documents = set(document_ids_from_tools(messages))
         active_documents = [doc_id for doc_id in response.document_ids if doc_id in known_documents]

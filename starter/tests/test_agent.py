@@ -98,6 +98,67 @@ def test_document_ids_from_tools():
     assert agent.document_ids_from_tools(messages) == ["INV-003", "INV-002"]
 
 
+def search_message(*doc_ids, call_id="s"):
+    content = "Found documents:\n\n" + "\n".join(f"Document {i} (ID: {doc_id}):" for i, doc_id in enumerate(doc_ids, 1))
+    return ToolMessage(content=content, name="document_search", tool_call_id=call_id)
+
+
+def test_select_sources_prefers_cited_documents():
+    turn = [search_message("INV-003", "CON-001", "INV-002")]
+    answer = AnswerResponse(question="q", answer="a", sources=["INV-003", "INV-002"], confidence=0.9)
+
+    assert agent.select_sources(turn, answer) == ["INV-003", "INV-002"]
+
+
+def test_select_sources_ignores_cited_documents_tools_never_found():
+    turn = [search_message("CON-001", "INV-001"), reader_message("CON-001")]
+    answer = AnswerResponse(question="q", answer="a", sources=["INV-999"], confidence=0.9)
+
+    assert agent.select_sources(turn, answer) == ["CON-001"]
+
+
+def test_select_sources_prefers_read_documents_over_search_results():
+    turn = [search_message("CON-001", "INV-001", "INV-002"), reader_message("CON-001")]
+
+    assert agent.select_sources(turn, None) == ["CON-001"]
+
+
+def test_select_sources_uses_search_results_when_nothing_read():
+    turn = [search_message("INV-003", "INV-002")]
+
+    assert agent.select_sources(turn, None) == ["INV-003", "INV-002"]
+
+
+def test_select_sources_uses_summary_document_ids():
+    turn = [search_message("INV-001", "INV-002", "INV-003")]
+    summary = SummarizationResponse(original_length=1, summary="s", key_points=[], document_ids=["INV-002"])
+
+    assert agent.select_sources(turn, summary) == ["INV-002"]
+
+
+def test_select_sources_handles_bad_summary_default():
+    turn = [reader_message("INV-001")]
+    summary = SummarizationResponse(original_length=1, summary="s", key_points=[])
+
+    assert agent.select_sources(turn, summary) == ["INV-001"]
+
+
+def test_update_memory_uses_cited_sources_from_current_response():
+    llm = FakeLLM(document_ids=[])
+    answer = AnswerResponse(question="q", answer="60 days", sources=["CON-001"], confidence=0.9)
+    state = {
+        "messages": [
+            HumanMessage(content="Termination notice?"),
+            search_message("CON-001", "INV-001", "INV-002"),
+            AIMessage(content="60 days"),
+        ],
+        "current_response": {"structured_response": answer},
+        "conversation_summary": "",
+    }
+
+    assert agent.update_memory(state, make_config(llm))["active_documents"] == ["CON-001"]
+
+
 def test_update_memory_uses_documents_from_this_turn_not_llm_guess():
     llm = FakeLLM(document_ids=["INV-999"])
     state = {
