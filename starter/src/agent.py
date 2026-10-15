@@ -10,6 +10,7 @@ from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 from langgraph.prebuilt import tools_condition, ToolNode
 from langchain.agents import create_agent
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage, ToolMessage
+import math
 import re
 import operator
 from schemas import (
@@ -55,7 +56,36 @@ def is_math_expression(expression: str) -> bool:
     )
 
 
-def format_structured_response(response: BaseModel) -> str:
+def verify_with_calculator(response: CalculationResponse, tools) -> (CalculationResponse, bool):
+    """
+    Run the response's expression through the calculator tool, so the result shown to the
+    user always comes from the calculator even if the model did the math itself.
+    Returns the response (with the calculator's result) and whether it was verified.
+    """
+    calculator = next((t for t in tools or [] if t.name == "calculator"), None)
+    if calculator is None or not is_math_expression(response.expression):
+        return response, False
+
+    output = calculator.invoke({"expression": response.expression})
+    match = re.search(r" = (-?\d+(?:\.\d+)?(?:e[+-]?\d+)?)$", output)
+    if not match:
+        return response, False
+
+    value = float(match.group(1))
+    explanation = response.explanation
+    # The model's figure counts as matching if it is the calculator's value rounded (e.g. 48.98)
+    model_text = repr(float(response.result))
+    decimals = len(model_text.split(".")[1]) if "." in model_text and "e" not in model_text else 10
+    if not (math.isclose(value, response.result, rel_tol=1e-6, abs_tol=1e-6)
+            or round(value, decimals) == response.result):
+        explanation += (
+            f"\n\nNote: the calculator gives {value:,g} for this expression, "
+            f"which differs from the figure above."
+        )
+    return response.model_copy(update={"result": value, "explanation": explanation}), True
+
+
+def format_structured_response(response: BaseModel, calculator_verified: bool = False) -> str:
     """Turn an agent's structured response into readable text for the user."""
     if isinstance(response, AnswerResponse):
         return response.answer
@@ -63,9 +93,9 @@ def format_structured_response(response: BaseModel) -> str:
         key_points = "\n".join(f"- {point}" for point in response.key_points)
         return f"{response.summary}\n\nKey points:\n{key_points}" if key_points else response.summary
     if isinstance(response, CalculationResponse):
-        # Skip the result line when nothing was calculated (e.g. the document was not found,
-        # or the model put a sentence in the expression field)
-        if not is_math_expression(response.expression):
+        # Only show a result line the calculator produced; skip it when nothing was calculated
+        # (e.g. the document was not found, or the expression field holds a sentence)
+        if not calculator_verified:
             return response.explanation
         units = f" {response.units}" if response.units else ""
         return f"{response.explanation}\n\nResult: {response.expression} = {response.result:,g}{units}"
@@ -101,10 +131,18 @@ Dict[str, Any], List[str]):
     # create_agent ends with the structured response as a JSON message, so replace it
     # with readable text (keeping its id) for the user and the conversation history
     structured_response = result.get("structured_response")
+    calculator_verified = False
+    if isinstance(structured_response, CalculationResponse):
+        structured_response, calculator_verified = verify_with_calculator(structured_response, tools)
+        if calculator_verified:
+            result["structured_response"] = structured_response
+            if "calculator" not in tools_used:
+                tools_used.append("calculator")
+
     if structured_response is not None and isinstance(result["messages"][-1], AIMessage):
         final_message = result["messages"][-1]
         result["messages"][-1] = AIMessage(
-            content=format_structured_response(structured_response),
+            content=format_structured_response(structured_response, calculator_verified),
             id=final_message.id,
         )
 

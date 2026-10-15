@@ -245,9 +245,75 @@ def test_format_calculation_response():
         expression="22000 + 69300 + 214500", result=305800, explanation="Added the three invoice totals.", units="USD",
     )
 
-    assert agent.format_structured_response(response) == (
+    assert agent.format_structured_response(response, calculator_verified=True) == (
         "Added the three invoice totals.\n\nResult: 22000 + 69300 + 214500 = 305,800 USD"
     )
+
+
+def test_format_calculation_response_hides_unverified_result():
+    response = CalculationResponse(expression="15000 * 18", result=270000, explanation="Multiplied the fee by 18.")
+
+    assert agent.format_structured_response(response) == "Multiplied the fee by 18."
+
+
+@pytest.fixture
+def calculator_tools(logger):
+    from tools import create_calculator_tool
+    return [create_calculator_tool(logger)]
+
+
+def test_verify_with_calculator_confirms_correct_result(calculator_tools):
+    response = CalculationResponse(expression="(1200 / 2450) * 100", result=48.9796, explanation="Divided.")
+
+    verified_response, verified = agent.verify_with_calculator(response, calculator_tools)
+
+    assert verified
+    assert verified_response.result == pytest.approx(48.9795918367)
+    assert verified_response.explanation == "Divided."
+
+
+def test_verify_with_calculator_corrects_wrong_result(calculator_tools):
+    response = CalculationResponse(expression="15000 * 18", result=250000, explanation="It is $250,000.")
+
+    verified_response, verified = agent.verify_with_calculator(response, calculator_tools)
+
+    assert verified
+    assert verified_response.result == 270000
+    assert "the calculator gives 270,000" in verified_response.explanation
+
+
+@pytest.mark.parametrize("model_result", [48.98, 49.0, 48.9796, 48.979591836734695])
+def test_verify_with_calculator_accepts_rounded_result(calculator_tools, model_result):
+    response = CalculationResponse(expression="(1200 / 2450) * 100", result=model_result, explanation="Divided.")
+
+    verified_response, verified = agent.verify_with_calculator(response, calculator_tools)
+
+    assert verified
+    assert verified_response.explanation == "Divided."
+
+
+@pytest.mark.parametrize("expression", ["N/A", "Total Amount: $466,250.00", "5 / 0"])
+def test_verify_with_calculator_rejects_non_math_and_errors(calculator_tools, expression):
+    response = CalculationResponse(expression=expression, result=0, explanation="x")
+
+    assert agent.verify_with_calculator(response, calculator_tools) == (response, False)
+
+
+def test_verify_with_calculator_needs_calculator_tool():
+    response = CalculationResponse(expression="2 + 2", result=4, explanation="x")
+
+    assert agent.verify_with_calculator(response, []) == (response, False)
+
+
+def test_invoke_react_agent_runs_calculator_when_model_skipped_it(monkeypatch, calculator_tools, logger):
+    structured = CalculationResponse(expression="(1200 / 2450) * 100", result=48.98, explanation="About 49%.", units="%")
+    fake_create_agent(monkeypatch, [AIMessage(content=structured.model_dump_json())], structured)
+
+    result, tools_used = agent.invoke_react_agent(CalculationResponse, [], llm=None, tools=calculator_tools)
+
+    assert tools_used == ["calculator"]
+    assert [entry["tool_name"] for entry in logger.get_logs()] == ["calculator"]
+    assert result["messages"][-1].content == "About 49%.\n\nResult: (1200 / 2450) * 100 = 48.9796 %"
 
 
 @pytest.mark.parametrize("intent_type, node, schema", [

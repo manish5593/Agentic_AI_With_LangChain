@@ -111,8 +111,9 @@ You will be given the previous conversation summary (if any) and the conversatio
 Write an updated summary of the WHOLE conversation so far. Do NOT repeat or rewrite the assistant's last answer.
 
 The summary must:
-- Be 2-5 short sentences or bullet points
-- List each topic or question the user asked about, in order
+- Have one short bullet point per user question, in the order they were asked
+- Keep EVERY topic from the previous summary. Never drop earlier questions, even if the
+  latest question is about something else; only add a bullet for the new question
 - Mention the document IDs that were referenced
 - Note key findings or calculation results in a few words each (e.g., "INV-002 total: $69,300")
 - Note any unresolved questions
