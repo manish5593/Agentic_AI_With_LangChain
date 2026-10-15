@@ -1,0 +1,96 @@
+[
+  {
+    "timestamp": "2026-10-15T11:57:16.308114",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-003"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:20.999329",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "CLM-001"
+    },
+    "output": "{'found': True, 'doc_type': 'claim'}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:26.974434",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "2450 * 0.15"
+    },
+    "output": "{'result': 367.5}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:28.573884",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "2450 * 0.15"
+    },
+    "output": "{'result': 367.5}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:33.046844",
+    "tool_name": "document_search",
+    "input": {
+      "query": "invoices",
+      "search_type": "type",
+      "doc_type": "invoice",
+      "min_amount": null,
+      "max_amount": null,
+      "comparison": null,
+      "amount": null
+    },
+    "output": "{'results_count': 3}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:33.047317",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-001"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:33.048294",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-002"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:33.049036",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-003"
+    },
+    "output": "{'found': True, 'doc_type': 'invoice'}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:34.467848",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "2000 + 6300 + 19500"
+    },
+    "output": "{'result': 27800}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:36.254358",
+    "tool_name": "calculator",
+    "input": {
+      "expression": "2000 + 6300 + 19500"
+    },
+    "output": "{'result': 27800}"
+  },
+  {
+    "timestamp": "2026-10-15T11:57:44.239416",
+    "tool_name": "document_reader",
+    "input": {
+      "doc_id": "INV-999"
+    },
+    "output": "{'found': False}"
+  }
+]

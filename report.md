@@ -7,10 +7,8 @@ performs calculations on five sample business documents: three invoices (INV-001
 INV-003), a service agreement (CON-001) and an insurance claim (CLM-001).
 
 All placeholder code in the starter project has been implemented. The assistant runs end to
-end against GPT-4o, and 118 automated tests were written for it. The 113 offline tests pass.
-The 5 tests that call the real model passed before the API budget ran out; the last change
-(how sources are chosen) was checked with a real conversation but not with a full integration
-run.
+end against GPT-4o, and 118 automated tests were written for it. The 113 offline tests pass,
+and the 5 tests that call the real model pass on the final code.
 
 Testing with real conversations exposed several problems beyond the assigned tasks. These were
 fixed and are described in section 5.
@@ -139,11 +137,11 @@ are repeatable, and are skipped when no API key is set.
 
 The assistant writes two kinds of files while it runs, and both are included in the repository:
 
-- **`starter/sessions/`** holds 14 session files, one per run of `python main.py`. Each file
+- **`starter/sessions/`** holds 15 session files, one per run of `python main.py`. Each file
   stores the session ID, user ID, creation time and every turn of the conversation: the user's
   message, the messages exchanged with the model, the detected intent, the steps taken, the
   sources and the conversation summary.
-- **`starter/logs/`** holds 14 tool logs (`tool_usage_<date>_<time>.json`), one per run. Each
+- **`starter/logs/`** holds 15 tool logs (`tool_usage_<date>_<time>.json`), one per run. Each
   entry records the time, the tool called, its input and a short form of its output. For
   example, `tool_usage_20261015_045739.json` shows `document_search` and `document_reader` being
   used to find the invoices, then `calculator` evaluating `19500 + 6300 + 2000` = 27800.
@@ -151,6 +149,19 @@ The assistant writes two kinds of files while it runs, and both are included in 
 All of them were produced by real conversations with GPT-4o on 15 October 2026. They cover every
 request in the table above, including follow-ups such as "What is 15 percent of that claim
 amount?" and the missing document INV-999.
+
+The latest run, `sessions/cdc2b049-9390-44ce-a50c-ecea3fe6c888.json` with
+`logs/tool_usage_20261015_115713.json`, uses the final code. It covers all four intents, and each
+turn stores the classifier's confidence and reasoning:
+
+| Message | Intent | Confidence |
+|---|---|---|
+| What are the payment terms on INV-003? | qa | 0.95 |
+| Summarize the insurance claim CLM-001 | summarization | 0.95 |
+| What is 15 percent of that claim amount? | calculation | 0.95 |
+| How much tax was charged across all three invoices? | calculation | 0.95 |
+| Hello | unknown | 0.40 |
+| What is the total of invoice INV-999? | calculation | 0.95 |
 
 ## 5. Problems Found and Fixed
 
@@ -192,7 +203,7 @@ test.
   about 70 KB.
 - **Early runs used earlier code.** The sessions and logs come from runs made while the fixes in
   section 5 were being applied, so the earliest ones show problems that were fixed later, such as
-  the $303,800 total.
+  the $303,800 total. The latest session (`cdc2b049-...`) reflects the final code.
 
 ## 7. How to Run
 
