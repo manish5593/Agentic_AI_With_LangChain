@@ -75,6 +75,12 @@ Guidelines:
 4. Include units (such as currency) in your answer when applicable
 5. Cite the document IDs the numbers came from
 6. If the required numbers cannot be found, say so clearly instead of guessing
+7. When a document's total is needed, use the final total INCLUDING tax and discounts. If a document
+   lists a subtotal and tax but no total, add them together with the calculator tool to get its total.
+   Never use a subtotal as a document's total
+8. To find all documents of a kind (e.g., "all invoices"), use the document search tool with
+   search_type='type' and doc_type set to 'invoice', 'contract' or 'claim'. If a search returns no
+   results, try a different search before concluding that the documents do not exist
 """
 
 
