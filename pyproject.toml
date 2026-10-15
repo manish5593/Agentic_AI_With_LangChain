@@ -12,3 +12,12 @@ dependencies = [
     "pydantic>=2.0.0",
     "python-dotenv>=1.0.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["starter/tests"]
+markers = ["integration: end-to-end tests that call the real LLM (need OPENAI_API_KEY)"]
