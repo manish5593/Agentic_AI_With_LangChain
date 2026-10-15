@@ -46,6 +46,15 @@ class AgentState(TypedDict):
     actions_taken: Annotated[List[str], operator.add]
 
 
+def is_math_expression(expression: str) -> bool:
+    """True if the expression is real math (numbers and operators), not a sentence or 'N/A'."""
+    cleaned = re.sub(r"(?<=\d),(?=\d{3})", "", expression.replace("$", ""))
+    return bool(
+        re.fullmatch(r"[\d\s.+\-*/%()]+", cleaned)
+        and re.search(r"\d\s*\)*\s*(\*\*|[-+*/%])\s*\(*\s*\d", cleaned)
+    )
+
+
 def format_structured_response(response: BaseModel) -> str:
     """Turn an agent's structured response into readable text for the user."""
     if isinstance(response, AnswerResponse):
@@ -54,8 +63,9 @@ def format_structured_response(response: BaseModel) -> str:
         key_points = "\n".join(f"- {point}" for point in response.key_points)
         return f"{response.summary}\n\nKey points:\n{key_points}" if key_points else response.summary
     if isinstance(response, CalculationResponse):
-        # Skip the result line when nothing was calculated (e.g. the document was not found)
-        if not re.search(r"\d", response.expression):
+        # Skip the result line when nothing was calculated (e.g. the document was not found,
+        # or the model put a sentence in the expression field)
+        if not is_math_expression(response.expression):
             return response.explanation
         units = f" {response.units}" if response.units else ""
         return f"{response.explanation}\n\nResult: {response.expression} = {response.result:,g}{units}"

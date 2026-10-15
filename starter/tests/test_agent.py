@@ -205,6 +205,33 @@ def test_format_summarization_response():
     )
 
 
+@pytest.mark.parametrize("expression, expected", [
+    ("15000 * 18", True),
+    ("(214500 + 69300) / 2", True),
+    ("$1,500.00 + $250", True),
+    ("2 ** 10", True),
+    ("(2) * (3)", True),
+    ("N/A", False),
+    ("", False),
+    ("466250", False),
+    ("Total Documents: 5, Total Amount: $466,250.00", False),
+    ("The invoice with the highest amount is Invoice #12347 with an amount of $214,500.00.", False),
+    ("max(22000, 69300, 214500)", False),
+])
+def test_is_math_expression(expression, expected):
+    assert agent.is_math_expression(expression) is expected
+
+
+def test_format_calculation_response_with_sentence_expression():
+    response = CalculationResponse(
+        expression="Total Documents: 5, Total Amount: $466,250.00",
+        result=466250,
+        explanation="The total value of the documents is $466,250.",
+    )
+
+    assert agent.format_structured_response(response) == "The total value of the documents is $466,250."
+
+
 def test_format_calculation_response_without_calculation():
     response = CalculationResponse(
         expression="N/A", result=0, explanation="The document with ID INV-999 could not be found.",
