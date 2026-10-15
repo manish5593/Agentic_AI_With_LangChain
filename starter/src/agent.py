@@ -7,7 +7,8 @@ from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
-from langgraph.prebuilt import create_react_agent, tools_condition, ToolNode
+from langgraph.prebuilt import tools_condition, ToolNode
+from langchain.agents import create_agent
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage, ToolMessage
 import re
 import operator
@@ -45,14 +46,23 @@ class AgentState(TypedDict):
     actions_taken: Annotated[List[str], operator.add]
 
 
+def format_structured_response(response: BaseModel) -> str:
+    """Turn an agent's structured response into readable text for the user."""
+    if isinstance(response, AnswerResponse):
+        return response.answer
+    if isinstance(response, SummarizationResponse):
+        key_points = "\n".join(f"- {point}" for point in response.key_points)
+        return f"{response.summary}\n\nKey points:\n{key_points}" if key_points else response.summary
+    if isinstance(response, CalculationResponse):
+        units = f" {response.units}" if response.units else ""
+        return f"{response.explanation}\n\nResult: {response.expression} = {response.result:,g}{units}"
+    return str(response)
+
+
 def invoke_react_agent(response_schema: type[BaseModel], messages: List[BaseMessage], llm, tools) -> (
 Dict[str, Any], List[str]):
-    llm_with_tools = llm.bind_tools(
-        tools
-    )
-
-    agent = create_react_agent(
-        model=llm_with_tools,  # Use the bound model
+    agent = create_agent(
+        model=llm,
         tools=tools,
         response_format=response_schema,
     )
@@ -61,6 +71,16 @@ Dict[str, Any], List[str]):
     # Only count tool calls made in this turn, not those already in the chat history
     new_messages = result.get("messages", [])[len(messages):]
     tools_used = [t.name for t in new_messages if isinstance(t, ToolMessage)]
+
+    # create_agent ends with the structured response as a JSON message, so replace it
+    # with readable text (keeping its id) for the user and the conversation history
+    structured_response = result.get("structured_response")
+    if structured_response is not None and isinstance(result["messages"][-1], AIMessage):
+        final_message = result["messages"][-1]
+        result["messages"][-1] = AIMessage(
+            content=format_structured_response(structured_response),
+            id=final_message.id,
+        )
 
     return result, tools_used
 

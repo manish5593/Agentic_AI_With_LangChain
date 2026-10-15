@@ -84,7 +84,7 @@ class DocumentAssistant:
                 self.session_storage_path,
                 f"{self.current_session.session_id}.json"
             )
-            session_dict = self.current_session.dict()
+            session_dict = self.current_session.model_dump()
 
             def serialize_datetime(obj):
                 if isinstance(obj, datetime):
@@ -159,7 +159,7 @@ class DocumentAssistant:
             return {
                 "success": True,
                 "response": final_state.get("messages")[-1].content if final_state.get("messages") else None,
-                "intent": final_state.get("intent").dict() if final_state.get("intent") else None,
+                "intent": final_state.get("intent").model_dump() if final_state.get("intent") else None,
                 "tools_used": final_state.get("tools_used", []),
                 "sources": final_state.get("active_documents", []),
                 "actions_taken": final_state.get("actions_taken", []),
