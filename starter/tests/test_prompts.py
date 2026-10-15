@@ -40,3 +40,19 @@ def test_intent_classification_prompt_includes_inputs():
 
     assert "Sum all invoices" in prompt
     assert "human: hi" in prompt
+
+
+def test_intent_classification_prompt_has_examples_for_each_category():
+    prompt = get_intent_classification_prompt().format(user_input="x", conversation_history="")
+    examples = prompt.split("Examples:")[1].split("Confidence scoring:")[0]
+
+    for category in ("qa", "summarization", "calculation", "unknown"):
+        assert f"- {category}:" in examples
+
+
+def test_intent_classification_prompt_explains_confidence_and_reasoning():
+    prompt = get_intent_classification_prompt().format(user_input="x", conversation_history="")
+
+    assert "Confidence scoring:" in prompt
+    assert "0.0 and 1.0" in prompt
+    assert "Reasoning:" in prompt

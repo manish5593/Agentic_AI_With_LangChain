@@ -16,12 +16,46 @@ Given the user input and conversation history, classify the user's intent into o
 - calculation: Mathematical operations or numerical computations. Or questions about documents that may require calculations
 - unknown: Cannot determine the intent clearly
 
+Examples:
+- qa:
+  - "What are the payment terms on INV-003?"
+  - "Who is the client on the service agreement CON-001?"
+  - "Which invoices are over $50,000?"
+- summarization:
+  - "Summarize the insurance claim CLM-001"
+  - "Give me the key points of the service agreement"
+  - "Summarize all the invoices"
+- calculation:
+  - "What is the combined total of all three invoices?"
+  - "How much tax was charged across all invoices?"
+  - "What is 15 percent of that claim amount?" (a follow-up that refers to an earlier answer)
+- unknown:
+  - "Hello"
+  - "What's the weather like today?"
+  - "Can you help me?"
+
+Confidence scoring:
+Give a confidence score between 0.0 and 1.0 that reflects how sure you are of the category.
+- 0.9 to 1.0: The request clearly matches one category (e.g., it says "summarize" or asks for a total)
+- 0.7 to 0.89: The category is likely, but the wording is indirect or could fit another category
+- 0.5 to 0.69: The request could reasonably fit two categories; choose the more likely one
+- Below 0.5: The request is vague, off-topic or unrelated to documents; use "unknown"
+If a request needs both facts and arithmetic, classify it as calculation. Use the conversation
+history to resolve follow-ups that say "that", "those" or "it", and lower the confidence when the
+history does not make the reference clear.
+
+Reasoning:
+In one or two sentences, explain your choice. Name the words or phrases in the request that point
+to the category (e.g., "summarize", "total", "what is"), say which document IDs it refers to if
+any, and if another category was also possible, say why you did not choose it.
+
 User Input: {user_input}
 
 Recent Conversation History:
 {conversation_history}
 
-Analyze the user's request and classify their intent with a confidence score and brief reasoning.
+Analyze the user's request and classify their intent with a confidence score and brief reasoning,
+following the examples and guidelines above.
 """
     )
 

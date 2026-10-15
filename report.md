@@ -7,7 +7,7 @@ performs calculations on five sample business documents: three invoices (INV-001
 INV-003), a service agreement (CON-001) and an insurance claim (CLM-001).
 
 All placeholder code in the starter project has been implemented. The assistant runs end to
-end against GPT-4o, and 116 automated tests were written for it. The 111 offline tests pass.
+end against GPT-4o, and 118 automated tests were written for it. The 113 offline tests pass.
 The 5 tests that call the real model passed before the API budget ran out; the last change
 (how sources are chosen) was checked with a real conversation but not with a full integration
 run.
@@ -82,6 +82,10 @@ it without a session gives a clear error instead of an `AttributeError`.
 
 ### 3.4 Prompts (`src/prompts.py`)
 
+- The intent classification prompt gives three example requests for each category (`qa`,
+  `summarization`, `calculation`, `unknown`). It sets confidence bands (0.9–1.0 clear, 0.7–0.89
+  likely, 0.5–0.69 ambiguous, below 0.5 use `unknown`), says that requests needing arithmetic are
+  calculations, and asks for one or two sentences of reasoning that name the deciding words.
 - `get_chat_prompt_template` returns the Q&A, summarization or calculation system prompt for
   each intent, defaulting to Q&A.
 - `CALCULATION_SYSTEM_PROMPT` tells the model to find and read the right document, work out the
@@ -109,7 +113,7 @@ app.
 |---|---|---|
 | `test_schemas.py` | 12 | Defaults, allowed intents, confidence limits |
 | `test_tools.py` | 36 | Calculator results, unsafe input, huge exponents, errors, logging; document reader |
-| `test_prompts.py` | 7 | Prompt chosen for each intent; calculator rules in the calculation prompt |
+| `test_prompts.py` | 9 | Prompt chosen for each intent; calculator rules in the calculation prompt; examples, confidence and reasoning rules in the classification prompt |
 | `test_agent.py` | 56 | Routing, step order, memory across turns, separate sessions, source selection, calculator checks, formatting |
 | `test_integration.py` | 5 | Real conversations: question, summary, calculation, follow-up, missing document |
 
