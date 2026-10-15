@@ -180,11 +180,20 @@ def update_memory(state: AgentState, config: RunnableConfig) -> AgentState:
 
     llm = config.get("configurable").get("llm")
 
+    # Pass the conversation as a transcript so the LLM summarizes it instead of
+    # continuing the conversation from the assistant's last reply
+    transcript = "\n\n".join(
+        f"{'User' if message.type == 'human' else 'Assistant'}: {message.content}"
+        for message in state.get("messages", [])
+        if message.type in ("human", "ai") and message.content
+    )
+
     prompt_with_history = ChatPromptTemplate.from_messages([
         SystemMessagePromptTemplate.from_template(MEMORY_SUMMARY_PROMPT),
-        MessagesPlaceholder("chat_history"),
+        ("human", "Previous summary:\n{previous_summary}\n\nConversation transcript:\n{transcript}"),
     ]).invoke({
-        "chat_history": state.get("messages", []),
+        "previous_summary": state.get("conversation_summary") or "None",
+        "transcript": transcript,
     })
 
     structured_llm = llm.with_structured_output(UpdateMemoryResponse)

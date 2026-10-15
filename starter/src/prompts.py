@@ -99,11 +99,17 @@ def get_chat_prompt_template(intent_type: str) -> ChatPromptTemplate:
 
 
 # Memory Summary Prompt
-MEMORY_SUMMARY_PROMPT = """Summarize the following conversation history into a concise summary:
+MEMORY_SUMMARY_PROMPT = """You maintain the running memory of a conversation between a user and a document assistant.
 
-Focus on:
-- Key topics discussed
-- Documents referenced
-- Important findings or calculations
-- Any unresolved questions
+You will be given the previous conversation summary (if any) and the conversation transcript.
+Write an updated summary of the WHOLE conversation so far. Do NOT repeat or rewrite the assistant's last answer.
+
+The summary must:
+- Be 2-5 short sentences or bullet points
+- List each topic or question the user asked about, in order
+- Mention the document IDs that were referenced
+- Note key findings or calculation results in a few words each (e.g., "INV-002 total: $69,300")
+- Note any unresolved questions
+
+Also return the IDs of the documents relevant to the user's most recent message.
 """
