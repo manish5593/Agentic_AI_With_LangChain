@@ -56,7 +56,7 @@ def fake_react_agent(monkeypatch):
     def fake_invoke_react_agent(response_schema, messages, llm, tools):
         calls.append(response_schema)
         reply = [
-            ToolMessage(content="ok", name="document_reader", tool_call_id="call-1"),
+            ToolMessage(content="Document INV-001:\n\nInvoice #12345", name="document_reader", tool_call_id="call-1"),
             AIMessage(content=f"{response_schema.__name__} answer"),
         ]
         return {"messages": messages + reply}, ["document_reader"]

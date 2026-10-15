@@ -57,7 +57,11 @@ def test_classify_intent_handles_empty_history():
 def test_update_memory_returns_summary_and_documents():
     llm = FakeLLM(summary="Discussed INV-001", document_ids=["INV-001"])
     state = {
-        "messages": [HumanMessage(content="What is INV-001?"), AIMessage(content="An invoice")],
+        "messages": [
+            HumanMessage(content="What is INV-001?"),
+            ToolMessage(content="Document INV-001:\n\nInvoice", name="document_reader", tool_call_id="1"),
+            AIMessage(content="An invoice"),
+        ],
         "conversation_summary": "Earlier summary",
     }
 
@@ -73,6 +77,65 @@ def test_update_memory_returns_summary_and_documents():
     assert "Earlier summary" in prompt_text
     assert "User: What is INV-001?" in prompt_text
     assert "Assistant: An invoice" in prompt_text
+
+
+def reader_message(doc_id, call_id="r"):
+    return ToolMessage(content=f"Document {doc_id}:\n\ncontent", name="document_reader", tool_call_id=call_id)
+
+
+def test_document_ids_from_tools():
+    messages = [
+        HumanMessage(content="find invoices"),
+        ToolMessage(
+            content="Found 2 document(s):\n\nDocument 1 (ID: INV-003):\n...\nDocument 2 (ID: INV-002):\n...",
+            name="document_search", tool_call_id="s",
+        ),
+        reader_message("INV-002"),
+        ToolMessage(content="Document with ID INV-999 not found.", name="document_reader", tool_call_id="x"),
+        ToolMessage(content="TOTAL: 3", name="document_statistics", tool_call_id="t"),
+    ]
+
+    assert agent.document_ids_from_tools(messages) == ["INV-003", "INV-002"]
+
+
+def test_update_memory_uses_documents_from_this_turn_not_llm_guess():
+    llm = FakeLLM(document_ids=["INV-999"])
+    state = {
+        "messages": [
+            HumanMessage(content="Tell me about CON-001"), reader_message("CON-001", "1"), AIMessage(content="A contract"),
+            HumanMessage(content="And CLM-001?"), reader_message("CLM-001", "2"), AIMessage(content="A claim"),
+        ],
+        "conversation_summary": "",
+    }
+
+    assert agent.update_memory(state, make_config(llm))["active_documents"] == ["CLM-001"]
+
+
+def test_update_memory_follow_up_keeps_only_previously_found_documents():
+    llm = FakeLLM(document_ids=["INV-002", "INV-999"])
+    state = {
+        "messages": [
+            HumanMessage(content="Show INV-002"), reader_message("INV-002"), AIMessage(content="$69,300"),
+            HumanMessage(content="Double it"), AIMessage(content="$138,600"),
+        ],
+        "conversation_summary": "",
+    }
+
+    assert agent.update_memory(state, make_config(llm))["active_documents"] == ["INV-002"]
+
+
+def test_update_memory_has_no_sources_for_missing_document():
+    llm = FakeLLM(document_ids=["INV-999"])
+    state = {
+        "messages": [
+            HumanMessage(content="Total of INV-999?"),
+            ToolMessage(content="Document with ID INV-999 not found.", name="document_reader", tool_call_id="1"),
+            AIMessage(content="Not found"),
+        ],
+        "conversation_summary": "",
+    }
+
+    assert agent.update_memory(state, make_config(llm))["active_documents"] == []
 
 
 def test_update_memory_skips_tool_messages_in_transcript():
@@ -140,6 +203,14 @@ def test_format_summarization_response():
     assert agent.format_structured_response(response) == (
         "A service agreement.\n\nKey points:\n- 12 months\n- $180,000 total"
     )
+
+
+def test_format_calculation_response_without_calculation():
+    response = CalculationResponse(
+        expression="N/A", result=0, explanation="The document with ID INV-999 could not be found.",
+    )
+
+    assert agent.format_structured_response(response) == "The document with ID INV-999 could not be found."
 
 
 def test_format_calculation_response():

@@ -54,9 +54,25 @@ def format_structured_response(response: BaseModel) -> str:
         key_points = "\n".join(f"- {point}" for point in response.key_points)
         return f"{response.summary}\n\nKey points:\n{key_points}" if key_points else response.summary
     if isinstance(response, CalculationResponse):
+        # Skip the result line when nothing was calculated (e.g. the document was not found)
+        if not re.search(r"\d", response.expression):
+            return response.explanation
         units = f" {response.units}" if response.units else ""
         return f"{response.explanation}\n\nResult: {response.expression} = {response.result:,g}{units}"
     return str(response)
+
+
+def document_ids_from_tools(messages: List[BaseMessage]) -> List[str]:
+    """IDs of the documents that document_reader read or document_search returned, in order."""
+    doc_ids = []
+    for message in messages:
+        if not isinstance(message, ToolMessage):
+            continue
+        if message.name == "document_reader":
+            doc_ids += re.findall(r"^Document ([\w-]+):", message.content)
+        elif message.name == "document_search":
+            doc_ids += re.findall(r"\(ID: ([\w-]+)\)", message.content)
+    return list(dict.fromkeys(doc_ids))
 
 
 def invoke_react_agent(response_schema: type[BaseModel], messages: List[BaseMessage], llm, tools) -> (
@@ -220,9 +236,22 @@ def update_memory(state: AgentState, config: RunnableConfig) -> AgentState:
     structured_llm = llm.with_structured_output(UpdateMemoryResponse)
 
     response = structured_llm.invoke(prompt_with_history)
+
+    # Take the sources from the tools rather than trusting the LLM's guess: the documents
+    # the tools found this turn, or for a follow-up that used no document tools, the
+    # LLM's IDs limited to documents the tools have found earlier in the conversation
+    messages = state.get("messages", [])
+    last_user_message = max(
+        (i for i, message in enumerate(messages) if isinstance(message, HumanMessage)), default=-1
+    )
+    active_documents = document_ids_from_tools(messages[last_user_message + 1:])
+    if not active_documents:
+        known_documents = set(document_ids_from_tools(messages))
+        active_documents = [doc_id for doc_id in response.document_ids if doc_id in known_documents]
+
     return {
         "conversation_summary": response.summary,
-        "active_documents": response.document_ids,
+        "active_documents": active_documents,
         "actions_taken": ["update_memory"],
         "next_step": "end",
     }
