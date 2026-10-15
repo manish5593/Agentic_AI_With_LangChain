@@ -1,6 +1,6 @@
-# Udacity Document Assistant
+# DocDacity Document Assistant
 
-The Udacity Document Assistant is a command-line assistant that lets you chat with a small collection of business
+DocDacity is a command-line assistant that lets you chat with a small collection of business
 documents: three invoices, a service agreement and an insurance claim. You type a request in
 plain English, and the assistant works out what kind of request it is, looks up the documents
 it needs, and replies.
