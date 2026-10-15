@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 from langgraph.prebuilt import create_react_agent, tools_condition, ToolNode
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage, ToolMessage
 import re
@@ -243,4 +244,11 @@ def create_workflow(llm, tools):
 
     workflow.add_edge("update_memory", END)
 
-    return workflow.compile(checkpointer=InMemorySaver())
+    # Allow the checkpointer to restore our own schema objects stored in state
+    serde = JsonPlusSerializer(allowed_msgpack_modules=[
+        ("schemas", "UserIntent"),
+        ("schemas", "AnswerResponse"),
+        ("schemas", "SummarizationResponse"),
+        ("schemas", "CalculationResponse"),
+    ])
+    return workflow.compile(checkpointer=InMemorySaver(serde=serde))
