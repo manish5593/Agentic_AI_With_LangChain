@@ -192,6 +192,3 @@ track of the conversation across messages.
 * [print-color](https://pypi.org/project/print-color/) - Prints colored output in the terminal
 * [pytest](https://docs.pytest.org/) - Runs the automated tests
 * [uv](https://docs.astral.sh/uv/) - Creates the virtual environment and installs the exact package versions in `uv.lock`
-
-## License
-[License](../LICENSE.md)
